@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 public class WikiFront extends Page{
 
     public WikiFront (){
-        super();
         driver.manage().window().maximize();
         driver.get("https://pl.wikipedia.org");
 
@@ -13,9 +12,8 @@ public class WikiFront extends Page{
 
     public void search(String searchItem) {
 
-        driver.findElement(By.id("searchInput"));
-        driver.findElement(By.name("search"));
-        driver.findElement(By.className("searchButton"));
+        driver.findElement(By.id("searchInput")).sendKeys(searchItem);
+        driver.findElement(By.id("searchButton")).click();
 
     }
 }
